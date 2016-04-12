@@ -49,14 +49,16 @@
         [[MONPromptView alloc] initWithTitle:@"Hello, John Doe!"
                                      message:@"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
                           dismissButtonTitle:@"TRY AGAIN"
-                                  attributes:@{ kMONPromptViewAttribDismissButtonBackgroundColor: [UIColor colorWithRed:40/255.0f green:122/255.0f blue:1.0f alpha:1.0f],
+                                  attributes:@{ kMONPromptViewAttribDismissButtonBackgroundColor: [UIColor colorWithRed:1.0f green:0.502f blue:0.0f alpha:1.0f],
+                                                
                                                 kMONPromptViewAttribDismissButtonTextColor: [UIColor whiteColor],
-                                                kMONPromptViewAttribDismissButtonFont: [UIFont fontWithName:@"HelveticaNeue-Light" size:14.0f],
-                                                kMONPromptViewAttribMessageFont: [UIFont fontWithName:@"HelveticaNeue-Light" size:16.0f],
-                                                kMONPromptViewAttribTitleFont: [UIFont fontWithName:@"HelveticaNeue-Medium" size:18.0f] }];
+                                                kMONPromptViewAttribDismissButtonFont: [UIFont fontWithName:@"Copperplate-Bold" size:14.0f],
+                                                kMONPromptViewAttribMessageFont: [UIFont fontWithName:@"Copperplate-Bold" size:16.0f],
+                                                kMONPromptViewAttribTitleFont: [UIFont fontWithName:@"Copperplate-Bold" size:18.0f] }];
         _promptView.delegate = self;
     }
     return _promptView;
+    
 }
 
 #pragma mark -
@@ -75,6 +77,7 @@
         self.promptView.message = @"Lorem Ipsum is simply dummy text.";
     }
     [self.promptView showInView:self.view];
+    NSLog(@"%@", NSStringFromCGRect(self.view.frame));
 }
 
 #pragma mark -
@@ -98,7 +101,7 @@
 #pragma mark - Prompt View Delegate
 
 - (void)promptViewWillDismiss:(MONPromptView *)promptView {
-    
+    NSLog(@"点击消失");
 }
 
 #pragma mark -

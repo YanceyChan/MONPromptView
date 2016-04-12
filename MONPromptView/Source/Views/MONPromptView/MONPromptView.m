@@ -128,7 +128,7 @@ NSString *kMONPromptViewAttribMessageFont = @"kMONPromptViewAttribMessageFont";
     if (!_wrapperView) {
         _wrapperView = [[UIView alloc] initWithFrame:CGRectZero];
         _wrapperView.translatesAutoresizingMaskIntoConstraints = NO;
-        _wrapperView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
+        _wrapperView.backgroundColor = [UIColor clearColor];
     }
     return _wrapperView;
 }
@@ -253,7 +253,8 @@ NSString *kMONPromptViewAttribMessageFont = @"kMONPromptViewAttribMessageFont";
     [superview addLayoutConstraintWithVisualFormat:@"V:|-0-[wrapperView]-0-|" views:views];
     
     [UIView animateWithDuration:0.25f animations:^{
-        self.wrapperView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+        //背景色
+        self.wrapperView.backgroundColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.502 alpha:1.0];
     }];
     
     [UIView animateWithDuration:0.1 animations:^{
@@ -352,7 +353,8 @@ NSString *kMONPromptViewAttribMessageFont = @"kMONPromptViewAttribMessageFont";
     [self addLayoutConstraintWithVisualFormat:@"V:|-(topMargin)-[titleLabel(>=titleLabelHeight)]-(topMargin)-[messageLabel(>=messageLabelHeight)]-(topMargin)-[dismissButton(dismissButtonHeight)]|" views:views metrics:metrics];
     
     [self.wrapperView addSubview:self];
-    [self.wrapperView addLayoutConstraintWithVisualFormat:@"H:[promptView(promptViewWidth)]" views:views metrics:metrics];
+    //设置提示view的约束
+    [self.wrapperView addLayoutConstraintWithVisualFormat:@"H:|-30-[promptView]-30-|" views:views metrics:metrics];
     [self.wrapperView addLayoutConstraintWithVisualFormat:@"V:[promptView(>=promptViewHeight)]" views:views metrics:metrics];
     [self.wrapperView addLayoutConstraintCenterForSubview:self];
 }
